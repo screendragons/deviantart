@@ -87,7 +87,6 @@
             </div>
             <div class="col-lg-8 align-self-baseline">
               <p class="text-white-75 font-weight-light mb-5">DeviantArt is a social media platform where you can share your creations with others just by creating a account. </p>
-              <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Login</a>
             </div>
           </div>
         </div>
