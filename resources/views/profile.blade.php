@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <a href="{{ url('/logout') }}"> logout </a>
+           {{--  @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        @if
+                            <a href="{{ url('/profile') }}">Profile</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
+                    @endauth
+                </div>
+            @endif --}}
+        </nav>
+</header>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
