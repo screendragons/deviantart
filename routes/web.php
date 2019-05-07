@@ -26,8 +26,8 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
-Route::get('/logout', '\App\Http\Controllers\Auth\LogOutController@index');
-Route::get('/logout', 'LogOutController@index');
+// Route::get('/logout', '\App\Http\Controllers\Auth\LogOutController@index');
+// Route::get('/logout', 'LogOutController@index');
 
 Auth::routes();
 

@@ -3,7 +3,10 @@
 @section('content')
 <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <a href="{{ url('/logout') }}"> logout </a>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button> logout </button>
+            </form>
            {{--  @if (Route::has('login'))
                 <div class="top-right links">
                     @auth

@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+    @if($errors)
+    <ul>
+        @foreach($errors as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+    @endif
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
