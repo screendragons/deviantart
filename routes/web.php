@@ -32,3 +32,9 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Dropzone
+Route::get('image/upload','ImageUploadController@fileCreate');
+Route::post('image/upload/store','ImageUploadController@fileStore');
+Route::post('image/delete','ImageUploadController@fileDestroy');
