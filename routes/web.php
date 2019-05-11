@@ -39,6 +39,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Dropzone
-Route::get('image/upload','ImageUploadController@fileCreate')->name('upload');
+Route::get('image/upload','ImageUploadController@fileCreate')->name('upload'); //verkeerde path dus moet dit fixen 11/5/2019
 Route::post('image/upload/store','ImageUploadController@fileStore');
 Route::post('image/delete','ImageUploadController@fileDestroy');
