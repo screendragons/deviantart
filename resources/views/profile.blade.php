@@ -37,6 +37,10 @@
                 </div>
             </div>
         </div>
+        <form action="{{ route('upload') }}" method="post">
+             @csrf
+            <button> Upload </button>
+        </form>
     </div>
 </div>
 @endsection

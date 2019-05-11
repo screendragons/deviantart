@@ -23,6 +23,10 @@ Route::get('/home', function () {
     return view('home');
 });
 
+// Route::get('/upload', function () {
+//     return view('upload');
+// });
+
 Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -35,6 +39,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Dropzone
-Route::get('image/upload','ImageUploadController@fileCreate');
+Route::get('image/upload','ImageUploadController@fileCreate')->name('upload');
 Route::post('image/upload/store','ImageUploadController@fileStore');
 Route::post('image/delete','ImageUploadController@fileDestroy');
