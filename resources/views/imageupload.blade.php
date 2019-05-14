@@ -12,10 +12,11 @@
 <body>
 <div class="container">
 
-    <h3 class="jumbotron">Laravel Multiple Images Upload Using Dropzone</h3>
+    <h3 class="jumbotron">Upload your posts here</h3>
 
-    <form method="post" action="{{url('image/upload/store')}}" enctype="multipart/form-data" class="dropzone" id="dropzone">
-         @csrf
+    <form method="post" action="{{url('image/upload/store')}}" enctype="multipart/form-data" class="dropzone" id="dropzone">@csrf
+
+
 </form>
 <script type="text/javascript">
         Dropzone.options.dropzone =
