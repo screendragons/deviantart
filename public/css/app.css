@@ -10662,6 +10662,18 @@ a.text-dark:focus {
   }
 }
 
+nav#mainNav {
+  background-color: #fff;
+}
+
+#mainNav .navbar-brand {
+  color: #F4623A !important;
+}
+
+.col-md-8 {
+  padding-top: 107px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

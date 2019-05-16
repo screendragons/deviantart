@@ -29,6 +29,7 @@
 
           <!-- Theme CSS - Includes Bootstrap -->
           <link href="css/creative.min.css" rel="stylesheet">
+          <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
          {{--  <link rel="stylesheet" href="css/"> --}}
         </head>
 
