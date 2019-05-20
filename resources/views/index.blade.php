@@ -15,7 +15,7 @@
           <meta name="description" content="">
           <meta name="author" content="">
 
-          <title>DeviantArtu</title>
+          <title>DeviantArt</title>
 
           <!-- Font Awesome Icons -->
           <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
