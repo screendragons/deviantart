@@ -2,13 +2,12 @@
 
 @section('content')
     @include('partials.header')
-    @include('profile')
 
-   {{--  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <button> logout </button>
-        </form> --}}
+        </form>
 
        {{--  @if (Route::has('login'))
             <div class="top-right links">
@@ -21,7 +20,7 @@
             </div>
         @endif --}}
 
-    {{-- </nav> --}}
+    </nav>
 
     <div class="container">
         <div class="row justify-content-center">
