@@ -59,27 +59,38 @@
  --}}
 
 
-
+<link rel="stylesheet" href="{{ mix('/css/app.css') }}">
  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
    <div class="container">
      <a class="navbar-brand js-scroll-trigger" href="/deviantart/public">DeviantArt</a>
      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
      </button>
+
      <div class="flex-center position-ref full-height">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">s
          @if (Route::has('login'))
-             <div class="top-right links">
+             <div class="menu">
+              boe
                  @auth
                      <a href="{{ url('/profile') }}">Profile</a>
+                         <form action="{{ route('logout') }}" method="post">
+                             @csrf
+                             <button> logout </button>
+                         </form>
                  @else
-                     <a href="{{ route('login') }}">Login</a>
+                      <a href="{{ route('login') }}">Login</a>
                        /
                      @if (Route::has('register'))
                          <a href="{{ route('register') }}">Register</a>
                      @endif
                  @endauth
+
              </div>
          @endif
+      </nav>
      </div>
    </div>
  </nav>
+
+{{-- //top-right links --}}

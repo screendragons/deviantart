@@ -2,12 +2,13 @@
 
 @section('content')
     @include('partials.header')
+     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    {{-- <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <button> logout </button>
-        </form>
+        </form> --}}
 
        {{--  @if (Route::has('login'))
             <div class="top-right links">
@@ -19,12 +20,12 @@
                 @endauth
             </div>
         @endif --}}
-
-    </nav>
+{{--
+    </nav> --}}
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="profile-section">
                 Hello {{ Auth::user()->name }}
                 <div class="card">
                     <div class="card-header">Dashboard</div>

@@ -3,9 +3,9 @@
 @section('title', 'Home page')
 
 @section('content')
-    {{-- @include('partials.header') --}}
+    @include('partials.header')
 
-    <!DOCTYPE html>
+    {{-- <!DOCTYPE html>
     <html lang="en">
 
         <head>
@@ -14,7 +14,7 @@
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <meta name="description" content="">
           <meta name="author" content="">
-
+ --}}
           <title>DeviantArt</title>
 
           <!-- Font Awesome Icons -->
@@ -42,7 +42,9 @@
               <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="flex-center position-ref full-height">
+
+
+           {{--    <div class="flex-center position-ref full-height">
                   @if (Route::has('login'))
                       <div class="top-right links">
                           @auth
@@ -56,7 +58,9 @@
                           @endauth
                       </div>
                   @endif
-              </div>
+              </div> --}}
+
+
               {{-- <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                   <li class="nav-item">
@@ -280,9 +284,9 @@
           <!-- Custom scripts for this template -->
           <script src="js/creative.min.js"></script>
 
-        </body>
+     {{--    </body>
 
     </html>
-
+ --}}
 @stop
 
