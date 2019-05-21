@@ -68,16 +68,12 @@
      </button>
 
      <div class="flex-center position-ref full-height">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">s
+
          @if (Route::has('login'))
-             <div class="menu">
-              boe
+             <div class="top-right links">
                  @auth
                      <a href="{{ url('/profile') }}">Profile</a>
-                         <form action="{{ route('logout') }}" method="post">
-                             @csrf
-                             <button> logout </button>
-                         </form>
+
                  @else
                       <a href="{{ route('login') }}">Login</a>
                        /
@@ -85,10 +81,9 @@
                          <a href="{{ route('register') }}">Register</a>
                      @endif
                  @endauth
-
              </div>
          @endif
-      </nav>
+
      </div>
    </div>
  </nav>

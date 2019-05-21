@@ -22,7 +22,12 @@
         @endif --}}
 {{--
     </nav> --}}
-
+     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+         <form action="{{ route('logout') }}" method="post">
+             @csrf
+             <button> logout </button>
+         </form>
+    </nav>
     <div class="container">
         <div class="row justify-content-center">
             <div class="profile-section">
