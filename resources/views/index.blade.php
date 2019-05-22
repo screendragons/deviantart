@@ -21,8 +21,9 @@
           <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
           <!-- Google Fonts -->
-          <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-          <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+          <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap+Sans:400" rel="stylesheet">
+         {{--  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"> --}}
+       {{--    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'> --}}
 
           <!-- Plugin CSS -->
           <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -90,7 +91,7 @@
                 </div>
                 <div class="col-lg-8 align-self-baseline">
                   <p class="text-white-75 font-weight-light mb-5">DeviantArt is a social media platform where you can share your creations with others just by creating a account. </p>
-                   <a class="btn btn-light btn-xl js-scroll-trigger" href="http://localhost/deviantart/public/login">Get Started!</a>
+                   <a class="btn btn-light btn-xl js-scroll-trigger" href="http://localhost/deviantart/public/register">Get Started!</a>
                 </div>
               </div>
             </div>

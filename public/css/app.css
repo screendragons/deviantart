@@ -10666,3 +10666,11 @@ a.text-dark:focus {
   color: #F4623A !important;
 }
 
+.profile-section {
+  top: 107px;
+}
+
+#auth-post {
+  margin-top: 175px;
+}
+
