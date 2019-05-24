@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     @if($errors)
     <ul>
         @foreach($errors as $error)
