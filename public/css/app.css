@@ -10666,6 +10666,10 @@ a.text-dark:focus {
   color: #F4623A !important;
 }
 
+#mainNav {
+  background-color: #fff !important;
+}
+
 .profile-section {
   top: 107px;
 }
