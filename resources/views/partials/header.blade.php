@@ -63,7 +63,7 @@
   {{-- <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav"> --}}
 
     <nav class="{{-- navbar navbar-expand-lg navbar-light  --}}fixed-top py-3" id="mainNav">
-    <div class="container">
+    <div class="container white-top">
       <a class="navbar-brand js-scroll-trigger" href="/deviantart/public">DeviantArt</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
 
       <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
-          <div class="top-right links">
+          <div class="top-right links white-bottom">
             @auth
               <a href="{{ url('/profile') }}">Profile</a>
               @else

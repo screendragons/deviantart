@@ -10666,7 +10666,11 @@ a.text-dark:focus {
   color: #F4623A !important;
 }
 
-#mainNav {
+.white-top {
+  background-color: #fff !important;
+}
+
+.white-bottom {
   background-color: #fff !important;
 }
 
@@ -10676,5 +10680,9 @@ a.text-dark:focus {
 
 #auth-post {
   margin-top: 175px;
+}
+
+#margin {
+  margin-top: 50px !important;
 }
 
