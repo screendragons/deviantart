@@ -34,7 +34,9 @@ class ImageStoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //public function store(Request $request)
+        $request->image->store('images');
+
     }
 
     /**

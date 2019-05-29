@@ -26,8 +26,9 @@
 
             <h3 class="jumbotron" id="margin">Upload here your creation!</h3>
             <div class="form-group">
-                <label for="exampleInputTitle">Title</label>
-                <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Enter here your title">
+                <label for="exampleInputTitle">Title *</label>
+                <div class="inputholder"></div>
+                <input type="text" class="form-control" id="exampleInputTitle" placeholder="Enter here your title">
                 <small id="emailHelp" class="form-text text-muted">Just so we and other people know what kind of image it is :)</small>
               </div>
               <div class="form-group">
