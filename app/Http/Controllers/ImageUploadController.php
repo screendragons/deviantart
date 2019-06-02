@@ -18,10 +18,24 @@ class ImageUploadController extends Controller
         $image->move(public_path('images'),$imageName);
 
         $imageUpload = new ImageUpload();
-        $imageUpload->filename = $imageName;
+        $imageUpload->title = $imageName;
+        $imageUpload->original_title = $imageName;
+        $imageUpload->poster = '';
+        $imageUpload->mediatype = '';
         $imageUpload->save();
-        return response()->json(['success'=>$imageName]);
+        return response()->json(['succes'=>$imageName]);
     }
+
+    public function show($id)
+    {
+        $images = Images::get();
+        if (count ($images)){
+            return view('home', ['images'=>$images]);
+        }   else {
+            echo "There are no images";
+        }
+    }
+
     public function fileDestroy(Request $request)
     {
         $filename =  $request->get('filename');
@@ -32,5 +46,6 @@ class ImageUploadController extends Controller
         }
         return $filename;
     }
+
 
 }

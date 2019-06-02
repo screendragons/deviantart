@@ -11,6 +11,17 @@ class ImageStoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function fileStore(request $request)
+    // {
+        // if ($request->hasFile('file'))
+        // {
+
+        //     return 'yes';
+        // }
+
+        // return $request->all();
+    // }
+
     public function index()
     {
         //
@@ -32,11 +43,11 @@ class ImageStoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //public function store(Request $request)
-        $request->image->store('images');
+    public function fileStore(Request $request)
 
+    {
+
+        return view('imagestore');
     }
 
     /**

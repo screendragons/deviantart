@@ -25,5 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Dropzone
 Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('upload');
-Route::post('/resources/views/imagestore.blade.php','ImageStoreController@fileStore')->name('save');
+
+//store image in database
+Route::get('imagestore.blade.php','ImageStoreController@fileStore')->name('save');
+
 Route::post('image/delete','ImageUploadController@fileDestroy');
