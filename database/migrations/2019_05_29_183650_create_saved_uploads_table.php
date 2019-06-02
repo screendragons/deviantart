@@ -32,5 +32,11 @@ class CreateSavedUploadsTable extends Migration
     {
         Schema::dropIfExists('saved_uploads');
     }
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+
 }
 
