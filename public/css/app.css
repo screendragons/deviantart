@@ -10682,6 +10682,10 @@ a.text-dark:focus {
   margin-top: 175px;
 }
 
+button.logout {
+  float: right;
+}
+
 #margin {
   margin-top: 50px !important;
 }

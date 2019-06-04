@@ -4,34 +4,13 @@
     @include('partials.header')
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
-    {{-- <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-        <form action="{{ route('logout') }}" method="post">
-            @csrf
-            <button> logout </button>
-        </form> --}}
-
-       {{--  @if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    @if
-                        <a href="{{ url('/profile') }}">Profile</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                @endauth
-            </div>
-        @endif --}}
-{{--
-    </nav> --}}
-
-
     <nav class="fixed-top" id="mainNav">
-  {{--    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav"> --}}
          <form action="{{ route('logout') }}" method="post">
              @csrf
-             <button> logout </button>
+             <button class="logout"> logout </button>
          </form>
     </nav>
-  {{--   <div class="container"> --}}
+
     <div class="row justify-content-center">
         <div class="col-md-8 profile-section">
             Hello {{ Auth::user()->name }}
@@ -48,30 +27,20 @@
                     You are logged in!
                 </div>
             </div>
+
             <form action="{{ route('upload') }}" method="post">
                  @csrf
                 <button> Upload </button>
             </form>
+
+            <br>
+            <h5>My posts</h5>
+            {{-- @foreach($posts as $post)
+                <article></article>
+            @endforeach --}}
+
+            {{-- <img src="/admin/product/{{ $product['image'] }}" height="30px" width="30px" /> --}}
         </div>
     </div>
-    {{-- </div> --}}
-
-   {{--  <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-
-                <div class="card" id="auth-post">
-
-                    <div class="card-header">{{ Auth::user()->name }}</div>
-
-                    <div class="card-body">
-                        content
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
- --}}
 @endsection
 
