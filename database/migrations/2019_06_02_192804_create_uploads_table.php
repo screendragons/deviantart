@@ -18,9 +18,7 @@ class CreateUploadsTable extends Migration
             $table->string('name');
             $table->string('media_type');
             $table->string('datasize');
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
-
+            $table->timestamps();
         });
     }
     /**

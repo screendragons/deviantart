@@ -18,8 +18,7 @@ class CreateSavedUploadsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image_name');
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->timestamps();
         });
     }
 

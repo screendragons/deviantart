@@ -35,12 +35,11 @@
 
             <br>
             <h5>My posts</h5>
-            {{-- @foreach($posts as $post)
-                <article></article>
+           {{--  @foreach($posts as $post)
+                {{ $post-> name}}
             @endforeach --}}
 
             {{-- <img src="/admin/product/{{ $product['image'] }}" height="30px" width="30px" /> --}}
         </div>
     </div>
 @endsection
-

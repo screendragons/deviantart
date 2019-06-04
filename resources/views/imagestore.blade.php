@@ -6,11 +6,6 @@
     @include('partials.header')
 
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-   {{--  <section>
-		<div class="col-lg-3 col-md-6 text-center">
-			<p>Yesss!! New post has been maded</p>
-		</div>
-	</section> --}}
 
 	<body>
 		<header class="masthead">

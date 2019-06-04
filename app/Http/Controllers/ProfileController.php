@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Post;
+use App\Depress;
+use DB;
+use App\Http\Requests;
 
 class ProfileController extends Controller
 {
@@ -12,6 +14,13 @@ class ProfileController extends Controller
      *
      * @return void
      */
+    public function showPost(Request $request)
+    {
+        $posts = Depress::all();
+        return view('profile')->with('posts', $posts);
+    }
+
+
     public function __construct()
     {
         $this->middleware('auth');
