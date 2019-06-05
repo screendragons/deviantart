@@ -15,17 +15,17 @@
 
             <h3 class="jumbotron" id="margin">Upload here your creation!</h3>
             <div class="form-group">
-                <label for="exampleInputTitle">Title *</label>
+                <label for="exampleInputTitle" required>Title *</label>
                 <div class="inputholder"></div>
                 <input type="text" class="form-control" id="exampleInputTitle" placeholder="Enter here your title">
                 <small id="emailHelp" class="form-text text-muted">Just so we and other people know what kind of image it is :)</small>
               </div>
               <div class="form-group">
-                <label for="exampleInputDescription">Description</label>
+                <label for="exampleInputDescription" required>Description *</label>
                 <input type="text" class="form-control" id="exampleInputDescription" placeholder="Description">
               </div>
-            <form method="post" action="{{url('image/upload/store')}}" enctype="multipart/form-data"
-            class="dropzone" id="dropzone">
+            <form method="POST" action="{{url('image/upload/store')}}" enctype="multipart/form-data"
+            class="dropzone" id="dropzone" required>
             @csrf
 
             </form>
@@ -72,9 +72,8 @@
             };
             </script>
 
-            <form action="{{ route('save') }}" method="get">
+            <form action="{{ route('save')}}" method="POST" required>
                 @csrf
-                {{-- <input type="file" name="file"> --}}
                 <button> Save </button>
             </form>
         </div>

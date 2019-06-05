@@ -1,3 +1,8 @@
+ catch (Exception $e) {
+  > 664|             throw new QueryException(
+    665|                 $query, $this->prepareBindings($bindings), $e
+    666|             );
+    667|         }
 @extends('layouts.default')
 
 @section('title', 'Succes')

@@ -7,15 +7,16 @@
     <nav class="fixed-top" id="mainNav">
          <form action="{{ route('logout') }}" method="post">
              @csrf
-             <button class="logout"> logout </button>
+             <button class="logout btn btn-outline-info"> Log out </button>
+            {{--  <button type="button" class="btn btn-outline-secondary logout">Log out</button> --}}
          </form>
     </nav>
 
     <div class="row justify-content-center">
         <div class="col-md-8 profile-section">
-            Hello {{ Auth::user()->name }}
+
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Hello {{ Auth::user()->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -30,7 +31,7 @@
 
             <form action="{{ route('upload') }}" method="post">
                  @csrf
-                <button> Upload </button>
+                <button class="logout btn btn-outline-info"> Upload </button>
             </form>
 
             <br>
