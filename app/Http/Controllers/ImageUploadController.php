@@ -18,12 +18,14 @@ class ImageUploadController extends Controller
         $image->move(public_path('images'),$imageName);
 
         $imageUpload = new ImageUpload();
-        $imageUpload->title = $imageName;
-        $imageUpload->original_title = $imageName;
-        $imageUpload->poster = '';
-        $imageUpload->mediatype = '';
+        $imageUpload->name = $imageName;
+        $imageUpload->description = $imageName;
+        $imageUpload->media_type = '';
+        $imageUpload->datasize = 1;
         $imageUpload->save();
         return response()->json(['succes'=>$imageName]);
+
+        return view('imagestore');
     }
 
     public function show($id)
@@ -46,6 +48,5 @@ class ImageUploadController extends Controller
         }
         return $filename;
     }
-
 
 }

@@ -21,10 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Dropzone
+// Upload image
 Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('upload');
 
-//store image in database
-Route::POST('/image/upload/store','ImageStoreController@fileStore')->name('save');
+//Store image in database
+Route::POST('/image/upload/store','ImageUploadController@fileStore')->name('imageupload');
 
 Route::post('image/delete','ImageUploadController@fileDestroy');
