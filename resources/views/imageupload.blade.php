@@ -29,7 +29,7 @@
             @csrf
 
             </form> --}}
-           {{--  <script type="text/javascript">
+            {{-- <script type="text/javascript">
                 Dropzone.options.dropzone =
                  {
                     maxFilesize: 12,
@@ -71,18 +71,18 @@
                 }
             };
             </script> --}}
-{{--
-            <form action="{{ route('save')}}" method="POST" required>
+            <input type="file" name="myFile">
+            <form action="{{ route('upload')}}" method="POST" required>
                 @csrf
                 {{ csrf_field() }}
                 <button> Save </button>
             </form>
         </div>
-@stop --}}
+@stop
 
 
 
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 
 <html>
 
@@ -131,4 +131,4 @@
         </form>
       </div>
     </div>
-</div>
+</div> --}}

@@ -15,10 +15,14 @@ class ImageUploadController extends Controller
     {
         $image = $request->file('file');
         $imageName = $image->getClientOriginalName();
+        // $file = pathinfo($request->$image->getClientOriginalName());
+
         $image->move(public_path('images'),$imageName);
 
         $imageUpload = new ImageUpload();
         $imageUpload->name = $imageName;
+        // $imageUpload->name = str_slug($file['extension']);
+
         $imageUpload->description = $imageName;
         $imageUpload->media_type = '';
         $imageUpload->datasize = 1;

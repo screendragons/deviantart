@@ -25,6 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('upload');
 
 //Store image in database
-Route::POST('/image/upload/store','ImageUploadController@fileStore')->name('imageupload');
+Route::POST('/image/upload/store','ImageUploadController@fileStore')->name('upload');
 
 Route::post('image/delete','ImageUploadController@fileDestroy');
