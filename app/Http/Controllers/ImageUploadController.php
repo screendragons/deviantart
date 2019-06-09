@@ -26,7 +26,11 @@ class ImageUploadController extends Controller
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just ext
-
+            $extension = $request->file('cover_image')->getClientOriginalName();
+            // Filename to store
+            $fileNameToStore = $file.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         } else {
             $fileNameToStore = 'no_image.jpg';
         }
@@ -36,17 +40,18 @@ class ImageUploadController extends Controller
         $image->move(public_path('images'),$imageName);
 
         $imageUpload = new ImageUpload();
+        $imageUpload->user_id = auth()->user()->id;
         $imageUpload->name = $imageName;
         $imageUpload->name = str_slug($file['extension']);
 
         $imageUpload->description = $imageName;
         $imageUpload->media_type = '';
         $imageUpload->datasize = 1;
-        $imageUpload->cover_image = '';
+        $imageUpload->cover_image = $fileNameToStore;
         $imageUpload->save();
         return response()->json(['succes'=>$imageName]);
 
-        return view('imagestore');
+        return view('imageupload');
     }
 
     public function show($id)

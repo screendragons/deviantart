@@ -22,9 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Upload image
-Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('upload');
+Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('imageupload');
 
 //Store image in database
-Route::POST('/image/upload/store','ImageUploadController@fileStore')->name('upload');
+Route::post('/image/upload/store','ImageUploadController@fileStore')->name('imageupload');
 
 Route::post('image/delete','ImageUploadController@fileDestroy');
