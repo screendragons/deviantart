@@ -13,19 +13,36 @@ class ImageUploadController extends Controller
     }
     public function fileStore(Request $request)
     {
-        $image = $request->file('file');
-        $imageName = $image->getClientOriginalName();
-        // $file = pathinfo($request->$image->getClientOriginalName());
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+            'cover_image' => 'image|nullable|max:1999'
+        ]);
 
+        // Handle file upload
+        if($request->hasFile('cover_image')){
+            // Get file name with extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+
+        } else {
+            $fileNameToStore = 'no_image.jpg';
+        }
+
+        $image = $request->file('file');
+        // $imageName = $image->getClientOriginalName();
         $image->move(public_path('images'),$imageName);
 
         $imageUpload = new ImageUpload();
         $imageUpload->name = $imageName;
-        // $imageUpload->name = str_slug($file['extension']);
+        $imageUpload->name = str_slug($file['extension']);
 
         $imageUpload->description = $imageName;
         $imageUpload->media_type = '';
         $imageUpload->datasize = 1;
+        $imageUpload->cover_image = '';
         $imageUpload->save();
         return response()->json(['succes'=>$imageName]);
 

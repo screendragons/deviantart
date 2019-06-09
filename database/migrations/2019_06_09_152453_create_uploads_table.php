@@ -19,6 +19,7 @@ class CreateUploadsTable extends Migration
             $table->mediumText('description');
             $table->string('media_type');
             $table->string('datasize');
+            $table->string('cover_image');
             $table->timestamps();
         });
     }
@@ -32,6 +33,8 @@ class CreateUploadsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('uploads');
+
+
     }
 
     public function boot()

@@ -24,11 +24,11 @@
                 <label for="exampleInputDescription">Description *</label>
                 <input type="text" class="form-control" id="exampleInputDescription" placeholder="Description"  required>
               </div>
-          {{--   <form method="POST" action="{{url('image/upload/store')}}" enctype="multipart/form-data"
+            <form method="POST" action="{{url('image/upload/store')}}" enctype="multipart/form-data"
             class="dropzone" id="dropzone" required>
             @csrf
 
-            </form> --}}
+            </form>
             {{-- <script type="text/javascript">
                 Dropzone.options.dropzone =
                  {
