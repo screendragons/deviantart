@@ -71,7 +71,7 @@
             };
             </script> --}}
             <input type="file" name="myFile">
-            <form action="{{ route('upload')}}" method="POST" required>
+            <form action="{{ route('image.store')}}" method="POST">
                 @csrf
                 {{ csrf_field() }}
                 <button> Save </button>

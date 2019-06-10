@@ -17,14 +17,12 @@ Auth::routes();
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Upload image
-Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('imageupload');
+Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('image.upload');
 
 //Store image in database
-Route::post('/image/upload/store','ImageUploadController@fileStore')->name('imageupload');
+Route::post('/image/upload/store','ImageUploadController@fileStore')->name('image.store');
 
-Route::post('image/delete','ImageUploadController@fileDestroy');
+Route::post('image/delete','ImageUploadController@fileDestroy')->name('image.destroy');
