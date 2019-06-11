@@ -3,56 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ImageUpload;
+use App\Upload;
+use Auth;
 
 class ImageUploadController extends Controller
 {
-    public function fileCreate()
+
+
+    public function create()
     {
         return view('imageupload');
     }
-    public function fileStore(Request $request)
+
+
+    public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
+            'file' => 'image|nullable|max:1999'
         ]);
 
         // Handle file upload
-        if($request->hasFile('cover_image')){
+        if($request->hasFile('file')){
+            // dd('here');
             // Get file name with extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just ext
-            $extension = $request->file('cover_image')->getClientOriginalName();
+            $extension = $request->file('file')->getClientOriginalName();
             // Filename to store
-            $fileNameToStore = $file.'_'.time().'.'.$extension;
+            $fileNameToStore = str_slug($filename.'_'.time()).'.'.$extension;
             // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+            $path = $request->file('file')->storeAs('public', $fileNameToStore);
+            // $image = $request->file('file');
+            // $imageName = $image->getClientOriginalName();
+            // $image->move(public_path('images'),$filenameWithExt);
         } else {
             $fileNameToStore = 'no_image.jpg';
         }
 
-        $image = $request->file('file');
-        // $imageName = $image->getClientOriginalName();
-        $image->move(public_path('images'),$imageName);
 
-        $imageUpload = new ImageUpload();
-        $imageUpload->user_id = auth()->user()->id;
-        $imageUpload->name = $imageName;
-        $imageUpload->name = str_slug($file['extension']);
+        $upload = new Upload();
+        $upload->user_id = Auth::id();
+        $upload->name = $request->title;
+        $upload->filename = $fileNameToStore;
+        $upload->description = $request->body;
+        $upload->media_type = '';
+        $upload->datasize = 1;
+        $upload->save();
 
-        $imageUpload->description = $imageName;
-        $imageUpload->media_type = '';
-        $imageUpload->datasize = 1;
-        $imageUpload->cover_image = $fileNameToStore;
-        $imageUpload->save();
-        return response()->json(['succes'=>$imageName]);
-
-        return view('imageupload');
+        return redirect()->back();
     }
+
 
     public function show($id)
     {
@@ -64,10 +69,11 @@ class ImageUploadController extends Controller
         }
     }
 
+
     public function fileDestroy(Request $request)
     {
         $filename =  $request->get('filename');
-        ImageUpload::where('filename',$filename)->delete();
+        upload::where('filename',$filename)->delete();
         $path=public_path().'/images/'.$filename;
         if (file_exists($path)) {
             unlink($path);

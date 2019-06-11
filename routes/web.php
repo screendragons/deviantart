@@ -19,10 +19,15 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Upload image
-Route::post('/resources/views/imageupload.blade.php','ImageUploadController@fileCreate')->name('image.upload');
+// Create
+Route::get('/image/create','ImageUploadController@create')->name('image.create');
+Route::post('/image/store','ImageUploadController@store')->name('image.store');
 
-//Store image in database
-Route::post('/image/upload/store','ImageUploadController@fileStore')->name('image.store');
+// Read
+Route::post('/image/show','ImageUploadController@fileShow')->name('image.show');
 
+// Update
+// Route::post('/image/upload/store','ImageUploadController@fileStore')->name('image.store');
+
+// Delete
 Route::post('image/delete','ImageUploadController@fileDestroy')->name('image.destroy');

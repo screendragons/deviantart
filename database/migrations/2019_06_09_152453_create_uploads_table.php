@@ -15,11 +15,12 @@ class CreateUploadsTable extends Migration
     {
         Schema::create('uploads', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->string('filename');
             $table->string('name');
             $table->mediumText('description');
             $table->string('media_type');
             $table->string('datasize');
-            $table->string('cover_image');
             $table->timestamps();
         });
     }
