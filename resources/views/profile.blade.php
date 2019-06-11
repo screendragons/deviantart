@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('image.upload') }}" method="post">
+            <form action="{{ route('image.create') }}" method="post">
                  @csrf
                 <button class="logout btn btn-outline-info"> Upload </button>
             </form>
