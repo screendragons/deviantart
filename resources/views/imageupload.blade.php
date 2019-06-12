@@ -7,10 +7,10 @@
     @include('partials.header')
 
     <div class="container">
-        @if($errors->any())
+        {{-- @if($errors->any())
 
             Validatie error
-        @endif
+        @endif --}}
         <form action="{{ route('image.store') }}" enctype="multipart/form-data" method="POST">
 
             <h3 class="jumbotron" id="margin">Upload here your creation!</h3>

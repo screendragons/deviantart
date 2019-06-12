@@ -45,7 +45,6 @@ class ImageUploadController extends Controller
             $fileNameToStore = 'no_image.jpg';
         }
 
-
         $upload = new Upload();
         $upload->user_id = Auth::id();
         $upload->name = $request->title;
@@ -61,7 +60,7 @@ class ImageUploadController extends Controller
 
     public function show($id)
     {
-        $images = Images::get();
+        $images = Image::get();
         if (count ($images)){
             return view('home', ['images'=>$images]);
         }   else {

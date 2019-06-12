@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Image;
 
 class HomeController extends Controller
 {
@@ -25,4 +26,16 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function show()
+    {
+        $images = Image::get();
+        if (count ($images)){
+            return view('home', ['images'=>$images]);
+        }   else {
+            echo "There are no images";
+        }
+
+    }
+
 }
