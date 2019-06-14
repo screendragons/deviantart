@@ -2,8 +2,7 @@
 
 @section('content')
     @include('partials.header')
-        <link href="{{ mix('/css/app.css') }}" rel="stylesheet" >
-
+        {{-- <link href="{{ mix('/css/app.css') }}" rel="stylesheet" > --}}
     <nav class="fixed-top" id="mainNav">
          <form action="{{ route('logout') }}" method="post">
              @csrf
@@ -29,10 +28,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('image.create') }}" method="post">
-                 @csrf
-                <button class="logout btn btn-outline-info"> Upload </button>
-            </form>
+                <a href="{{ route('image.create') }}" class="logout btn btn-outline-info"> Upload </a>
 
             <br>
             <h5>My posts</h5>

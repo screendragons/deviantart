@@ -9,9 +9,7 @@
 <body>
 
 	<div class="container">
-
 		@yield('content')
-
 	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>

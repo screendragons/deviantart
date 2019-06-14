@@ -10690,3 +10690,8 @@ button.logout {
   margin-top: 50px !important;
 }
 
+.post {
+  border: none;
+  padding: 0;
+}
+

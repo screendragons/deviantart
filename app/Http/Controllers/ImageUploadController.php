@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Upload;
 use Auth;
+use Image;
 
 class ImageUploadController extends Controller
 {
@@ -16,7 +17,7 @@ class ImageUploadController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, Upload $upload)
     {
         // dd($request->all());
         $this->validate($request, [
@@ -37,7 +38,16 @@ class ImageUploadController extends Controller
             // Filename to store
             $fileNameToStore = str_slug($filename.'_'.time()).'.'.$extension;
             // Upload Image
-            $path = $request->file('file')->storeAs('public', $fileNameToStore);
+            Image::make($request->file('file'))
+                // ->resize(150, 150)
+
+                // ->resize(null, 200, function ($constraint) {
+                //     $constraint->aspectRatio();
+                // });
+                ->resize(200, 200)
+                ->save(storage_path('app\\public\\'.$fileNameToStore));
+                // ->storeAs('public', $fileNameToStore);
+            // $path = $request->file('file')->storeAs('public', $fileNameToStore);
             // $image = $request->file('file');
             // $imageName = $image->getClientOriginalName();
             // $image->move(public_path('images'),$filenameWithExt);
@@ -55,21 +65,28 @@ class ImageUploadController extends Controller
         $upload->save();
 
         return redirect()->back();
+         // return view('home')
+         //    ->with('uploads', $upload);
     }
 
 
-    public function show($id)
+    public function show(Request $request, Upload $upload)
     {
-        $images = Image::get();
-        if (count ($images)){
-            return view('home', ['images'=>$images]);
-        }   else {
-            echo "There are no images";
-        }
+        // $images = Image::get();
+        // if (count ($images)){
+        //     return view('home', ['images'=>$images]);
+        // }   else {
+        //     echo "There are no images";
+        // }
+
+        $uploads = Upload::get();
+
+        return view('home')
+            ->with('uploads', $uploads);
     }
 
 
-    public function fileDestroy(Request $request)
+    public function destroy(Request $request)
     {
         $filename =  $request->get('filename');
         upload::where('filename',$filename)->delete();
