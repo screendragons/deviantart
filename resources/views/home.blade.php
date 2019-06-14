@@ -3,13 +3,13 @@
 @section('content')
     @include('partials.header')
         {{-- <link href="{{ mix('/css/app.css') }}" rel="stylesheet" > --}}
-        <nav class="fixed-top" id="mainNav">
+       {{--  <nav class="fixed-top" id="mainNav">
              <form action="{{ route('logout') }}" method="post">
                  @csrf
-                 <button class="logout btn btn-outline-info"> Log out </button>
+                 <button class="logout btn btn-outline-info"> Log out </button> --}}
                 {{--  <button type="button" class="btn btn-outline-secondary logout">Log out</button> --}}
-             </form>
-        </nav>
+           {{--   </form> --}}
+      {{--   </nav> --}}
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">

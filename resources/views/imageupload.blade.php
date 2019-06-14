@@ -11,7 +11,7 @@
 
             Validatie error
         @endif --}}
-        <form action="{{ route('image.store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('image.store') }}" enctype="multipart/form-data" method="post">
 
             <h3 class="jumbotron" id="margin">Upload here your creation!</h3>
 

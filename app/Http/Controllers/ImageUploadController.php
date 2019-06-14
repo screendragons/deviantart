@@ -64,13 +64,15 @@ class ImageUploadController extends Controller
         $upload->datasize = 1;
         $upload->save();
 
-        return redirect()->back();
-         // return view('home')
-         //    ->with('uploads', $upload);
+        // dd($upload);
+
+        // return redirect()->back();
+         return redirect('home');
+            // ->with('uploads', $upload);
     }
 
 
-    public function show(Request $request, Upload $upload)
+    public function show(Request $request, Upload $uploads)
     {
         // $images = Image::get();
         // if (count ($images)){
