@@ -63,32 +63,34 @@
     {{-- <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav"> --}}
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap+Sans:400" rel="stylesheet">
-    <nav class="{{-- navbar navbar-expand-lg navbar-light  --}}fixed-top {{-- py-3 --}}" id="mainNav">
+    <nav class="{{-- navbar navbar-expand-lg navbar-light  --}}fixed-top {{-- py-3 --}} navbar-expand-lg {{-- navbar-light bg-light --}}" id="mainNav">
       <div class="container white-top">
-        <a class="header navbar-brand js-scroll-trigger" href="http://localhost/deviantart/public/">DeviantArt</a>
+
+        <a class="header navbar-brand {{-- js-scroll-trigger --}}" href="http://localhost/deviantart/public/">DeviantArt</a>
         {{-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
           data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button> --}}
 
-        <div class="flex-center position-ref full-height">
+        {{-- <div class="flex-center position-ref full-height"> --}}
           @if (Route::has('login'))
-            <div class="top-right links white-bottom">
+            {{-- <div class="top-right links white-bottom"> --}}
               @auth
-              <div class="navbar-nav">
-             {{--    <li class="nav-item"> --}}
-                  <a class="nav-item nav-link" href="{{ url('/home') }}">Home</a>
-                {{-- </li> --}}
-                {{-- <li class="nav-item"> --}}
-                  <a class="nav-item nav-link" href="{{ url('/profile') }}">Profile</a>
-                {{-- </li> --}}
-              </div>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link page" href="{{ url('/home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link page" href="{{ url('/profile') }}">Profile</a>
+                </li>
+              </ul>
+              <form action="{{ route('logout') }}" method="post">
 
-                <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <button class="logout btn btn-outline-info"> Log out </button>
-                   {{--  <button type="button" class="btn btn-outline-secondary logout">Log out</button> --}}
+                <button class="logout btn btn-outline-info"> Log out </button>
+               {{--  <button type="button" class="btn btn-outline-secondary logout">Log out</button> --}}
+               @csrf
                 </form>
+
                 @else
                   <a href="{{ route('login') }}">Login</a>
                     /
@@ -97,9 +99,9 @@
                   @endif
               @endauth
 
-            </div>
+           {{--  </div> --}}
           @endif
-        </div>
+       {{--  </div> --}}
       </div>
     </nav>
 

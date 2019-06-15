@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.app')
 
 @section('title', 'Upload creations just right here')
 
@@ -11,6 +11,7 @@
 
             Validatie error
         @endif --}}
+        @include('inc.messages')
         <form action="{{ route('image.store') }}" enctype="multipart/form-data" method="post">
 
             <h3 class="jumbotron" id="margin">Upload here your creation!</h3>
@@ -29,7 +30,7 @@
 
               <input type="file" name="file">
 
-              <button type="submit"> Save </button>
+              <button type="submit" class="btn btn-info"> Save </button>
 
             @csrf
         </form>
@@ -88,3 +89,4 @@
       </div>
     </div>
 </div> --}}
+

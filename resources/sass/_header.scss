@@ -1,6 +1,4 @@
-// .header {
-// 	padding-top: 0 !important;
-// }
+
 #mainNav .navbar-brand {
     color: #F4623A !important;
 }
@@ -16,3 +14,11 @@
 //     height: 0px !important;
 //     padding: 0px !important;
 // }
+
+a.nav-link.page {
+    color: #F4623A !important;
+}
+button.logout.btn.btn-outline-info {
+  float: right;
+  margin-top: -55px;
+}

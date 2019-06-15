@@ -10674,6 +10674,15 @@ a.text-dark:focus {
   background-color: #fff !important;
 }
 
+a.nav-link.page {
+  color: #F4623A !important;
+}
+
+button.logout.btn.btn-outline-info {
+  float: right;
+  margin-top: -55px;
+}
+
 .profile-section {
   top: 107px;
 }
@@ -10693,5 +10702,9 @@ button.logout {
 .post {
   border: none;
   padding: 0;
+}
+
+input.form-control {
+  margin-top: 15px;
 }
 

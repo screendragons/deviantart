@@ -16,6 +16,13 @@ class ImageUploadController extends Controller
         return view('imageupload');
     }
 
+    public function index()
+    {
+        // get latest post above
+        // $upload = Upload::orderBy('created_at', 'desc')->paginate(5); //
+
+        // return view('image.index')->with('uploads', $uploads); //
+    }
 
     public function store(Request $request, Upload $upload)
     {
@@ -72,7 +79,7 @@ class ImageUploadController extends Controller
     }
 
 
-    public function show(Request $request, Upload $uploads)
+    public function show(Upload $uploads)
     {
         // $images = Image::get();
         // if (count ($images)){
@@ -81,10 +88,14 @@ class ImageUploadController extends Controller
         //     echo "There are no images";
         // }
 
+        // $upload = Upload::find($id); //
+        // return view('image.show', compact('images')); //
+
         $uploads = Upload::get();
 
         return view('home')
             ->with('uploads', $uploads);
+
     }
 
 

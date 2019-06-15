@@ -25,13 +25,16 @@ Route::get('/image/create','ImageUploadController@create')->name('image.create')
 Route::post('/image/store','ImageUploadController@store')->name('image.store');
 
 // Read
-Route::post('/image/show','ImageUploadController@show')->name('image.show');
+// Route::post('/image/show','ImageUploadController@show')->name('image.show');
+Route::get('/image/show','ImageUploadController@show')->name('image.show');
 
 // Update
 // Route::post('/image/upload/store','ImageUploadController@fileStore')->name('image.store');
 
 // Delete
 Route::post('image/delete','ImageUploadController@destroy')->name('image.destroy');
+
+// Route::get('/show', 'ShowController@index')->name('show');
 
 Route::resource('images', 'ImageUploadController');
 Route::resource('images', 'HomeController');

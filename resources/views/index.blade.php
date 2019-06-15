@@ -1,12 +1,12 @@
-@extends('layouts.default')
+@extends('layouts.app')
 
-@section('title', 'Home page')
+@section('title', 'DeviantArt')
 
 @section('content')
     @include('partials.header')
       <link href="css/creative.min.css" rel="stylesheet">
           <title>DeviantArt</title>
-            </div>
+
 
           <!-- Masthead -->
           <header class="masthead">
