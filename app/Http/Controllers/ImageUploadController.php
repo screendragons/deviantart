@@ -79,7 +79,9 @@ class ImageUploadController extends Controller
     }
 
 
-    public function show(Upload $uploads)
+    // public function show(Upload $uploads)
+
+    public function show(Request $request, Upload $uploads)
     {
         // $images = Image::get();
         // if (count ($images)){

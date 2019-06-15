@@ -63,6 +63,7 @@
     {{-- <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav"> --}}
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap+Sans:400" rel="stylesheet">
+
     <nav class="{{-- navbar navbar-expand-lg navbar-light  --}}fixed-top {{-- py-3 --}} navbar-expand-lg {{-- navbar-light bg-light --}}" id="mainNav">
       <div class="container white-top">
 
@@ -91,17 +92,38 @@
                @csrf
                 </form>
 
+        {{-- <div class="flex-center position-ref full-height">
+          @if (Route::has('login'))
+            <div class="top-right links white-bottom">
+              @auth
+              <div class="navbar-nav"> --}}
+             {{--    <li class="nav-item"> --}}
+                {{--   <a class="nav-item nav-link" href="{{ url('/home') }}">Home</a> --}}
+                {{-- </li> --}}
+                {{-- <li class="nav-item"> --}}
+                {{--   <a class="nav-item nav-link" href="{{ url('/profile') }}">Profile</a> --}}
+                {{-- </li> --}}
+             {{--  </div>
+
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button class="logout btn btn-outline-info"> Log out </button> --}}
+                   {{--  <button type="button" class="btn btn-outline-secondary logout">Log out</button> --}}
+               {{--  </form>
                 @else
                   <a href="{{ route('login') }}">Login</a>
                     /
                   @if (Route::has('register'))
                     <a href="{{ route('register') }}">Register</a>
                   @endif
-              @endauth
+              @endauth --}}
 
            {{--  </div> --}}
           @endif
        {{--  </div> --}}
+            </div>
+         {{--  @endif --}}
+        </div>
       </div>
     </nav>
 

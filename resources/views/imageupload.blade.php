@@ -11,7 +11,9 @@
 
             Validatie error
         @endif --}}
+
         @include('inc.messages')
+
         <form action="{{ route('image.store') }}" enctype="multipart/form-data" method="post">
 
             <h3 class="jumbotron" id="margin">Upload here your creation!</h3>

@@ -25,7 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         $uploads = Upload::get();
+
         // dd('1');
+
+        // dd($uploads);
 
         return view('home')
             ->with('uploads', $uploads);
