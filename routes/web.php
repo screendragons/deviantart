@@ -26,7 +26,7 @@ Route::post('/image/store','ImageUploadController@store')->name('image.store');
 
 // Read
 // Route::post('/image/show','ImageUploadController@show')->name('image.show');
-Route::get('/image/show','ImageUploadController@show')->name('image.show');
+Route::get('/image/show','ShowController@show')->name('image.show');
 
 // Update
 // Route::post('/image/upload/store','ImageUploadController@fileStore')->name('image.store');
