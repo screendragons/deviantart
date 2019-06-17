@@ -74,26 +74,33 @@
         </button> --}}
 
         {{-- <div class="flex-center position-ref full-height"> --}}
-          @if (Route::has('login'))
+         {{--  @if (Route::has('login')) --}}
             {{-- <div class="top-right links white-bottom"> --}}
-              @auth
-              <ul class="navbar-nav">
+              @guest
                 <li class="nav-item">
-                  <a class="nav-link page" href="{{ url('/home') }}">Home</a>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link page" href="{{ url('/profile') }}">Profile</a>
-                </li>
-              </ul>
-              <form action="{{ route('logout') }}" method="post">
+                @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+                @else
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link page" href="{{ url('/home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link page" href="{{ url('/profile') }}">Profile</a>
+                    </li>
+                  </ul>
+                  <form action="{{ route('logout') }}" method="post">
 
-                <button class="logout btn btn-outline-info"> Log out </button>
-               {{--  <button type="button" class="btn btn-outline-secondary logout">Log out</button> --}}
-               @csrf
-              </form>
-              @endauth
-          @endif
-
+                    <button class="logout btn btn-outline-info"> Log out </button>
+                   {{--  <button type="button" class="btn btn-outline-secondary logout">Log out</button> --}}
+                   @csrf
+                  </form>
+              @endguest
       </div>
     </nav>
  {{--    @endif --}}

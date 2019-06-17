@@ -27,9 +27,26 @@
 
             <br>
             <h5>My posts</h5>
-           {{--  @foreach($posts as $post)
-                {{ $post-> name}}
-            @endforeach --}}
+            @foreach($uploads as $upload)
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="{{$upload->image}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"> {{$upload->name}}</h5>
+                    <p class="card-text">{{$upload->description}}</p>
+                    <p class="card-text">{{$upload->created_at->toDayDateTimeString()}}</p>
+                    {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+                  </div>
+                  <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$upload['id']}}').submit();">Verwijderen</a>
+
+              <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
+
+                      @csrf
+
+                      @method('DELETE')
+
+                  </form>
+                </div>
+            @endforeach
 
             {{-- <img src="/admin/product/{{ $product['image'] }}" height="30px" width="30px" /> --}}
         </div>

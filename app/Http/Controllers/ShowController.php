@@ -14,8 +14,8 @@ class ShowController extends Controller
      */
     public function index()
     {
-        return view('show')
-        ->with('uploads', $uploads);
+        // return view('show')
+        // ->with('uploads', $uploads);
     }
 
     /**
@@ -47,8 +47,8 @@ class ShowController extends Controller
      */
     public function show()
     {
-        $upload = Upload::find($id); //
-        return view('show'); //
+        // $upload = Upload::find($id); //
+        // return view('show'); //
 
     }
 

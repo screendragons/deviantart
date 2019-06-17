@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Depress;
+use App\Upload;
 use DB;
 use App\Http\Requests;
 
@@ -16,8 +17,7 @@ class ProfileController extends Controller
      */
     public function showPost(Request $request)
     {
-        $posts = Depress::all();
-        return view('profile')->with('posts', $posts);
+
     }
 
 
@@ -34,6 +34,7 @@ class ProfileController extends Controller
     public function index()
     {
         // $posts = Post::all();
-        return view('Profile');
+        $uploads = Upload::where('user_id', Auth::id())->get();
+            return view('profile')->with('uploads', $uploads);
     }
 }

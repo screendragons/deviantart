@@ -6,27 +6,39 @@ use Illuminate\Http\Request;
 use App\Upload;
 use Auth;
 use Image;
+use Storage;
 
-class ImageUploadController extends Controller
+
+class ImageController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
 
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         return view('imageupload');
     }
 
-    public function index()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        // get latest post above
-        // $upload = Upload::orderBy('created_at', 'desc')->paginate(5); //
-
-        // return view('image.index')->with('uploads', $uploads); //
-    }
-
-    public function store(Request $request, Upload $upload)
-    {
-        // dd($request->all());
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -78,38 +90,69 @@ class ImageUploadController extends Controller
             // ->with('uploads', $upload);
     }
 
-
-    // public function show(Upload $uploads)
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
-        // $images = Image::get();
-        // if (count ($images)){
-        //     return view('home', ['images'=>$images]);
-        // }   else {
-        //     echo "There are no images";
-        // }
-
-        // $upload = Upload::find($id); //
-        // return view('image.show', compact('images')); //
-
         $upload = Upload::find($id);
 
         return view('show')
             ->with('upload', $upload);
-
     }
 
-
-    public function destroy(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
-        $filename =  $request->get('filename');
-        upload::where('filename',$filename)->delete();
-        $path=public_path().'/images/'.$filename;
-        if (file_exists($path)) {
-            unlink($path);
-        }
-        return $filename;
+        $upload = Upload::find($id);
+
+        return view('edit')
+            ->with('upload', $upload);
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request,$id)
+    {
+         dd($request);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        // $filename =  $request->get('filename');
+        // upload::where('filename',$filename)->delete();
+        // $path=public_path().'/images/'.$filename;
+        // if (file_exists($path)) {
+        //     unlink($path);
+        // }
+        // return $filename;
+
+        $upload = Upload::find($id);
+
+        Storage::delete('/public/'.$upload['filename']);
+
+        $upload->delete();
+
+        return view('home');
+
+    }
 }

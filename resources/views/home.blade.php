@@ -22,20 +22,17 @@
                 <br>
                 <br>
                 <br>
+                @foreach($uploads as $upload)
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">User</div>
-
-                        <div class="card-body">
-
-                            @foreach($uploads as $upload)
-
+                            <div class="card-body">
                                 <div class="list-group-item {{-- col-xs-6 col-md-4 col-lg-10  --}}post">
                                     <img src="{{ $upload->image }}">
                                     {{-- <p id="title"><b>Title</b><br>{{$upload->name}}</p> --}}
                                     <p id="title"><b>Title</b>
                                         <br>
-                                        <a href="{{ route('image.show')}}{{-- {{$upload->id}} --}}">
+                                        <a href="{{ url('image/'.$upload['id'])}}">
                                             {{$upload->name}}
                                         </p>
                                         </a>
@@ -44,10 +41,11 @@
                                     <p id="created_at"><b>Posted at</b>
                                         <br>{{$upload->created_at->toDayDateTimeString()}}</p>
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
 @endsection

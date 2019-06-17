@@ -4,13 +4,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
 
-Route::get('/home', function () {
-    return view('home');
-});
+// Route::get('/home', function () {
+//     return view('home');
+// });
 
 
 Auth::routes();
@@ -18,23 +18,20 @@ Auth::routes();
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home', 'ImageUploadController@show')->name('home.show');
 
 // Create
-Route::get('/image/create','ImageUploadController@create')->name('image.create');
-Route::post('/image/store','ImageUploadController@store')->name('image.store');
+Route::get('/image/create','ImageController@create')->name('image.create');
+Route::post('/image/store','ImageController@store')->name('image.store');
 
 // Read
-// Route::post('/image/show','ImageUploadController@show')->name('image.show');
-Route::get('/image/show','ShowController@show')->name('image.show');
+Route::get('/image/{id}','ImageController@show');
 
 // Update
-// Route::post('/image/upload/store','ImageUploadController@fileStore')->name('image.store');
+Route::get('/image/{id}/edit', 'ImageController@edit');
+Route::put('/image/{id}', 'ImageController@update');
 
 // Delete
-Route::post('image/delete','ImageUploadController@destroy')->name('image.destroy');
+Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 
-// Route::get('/show', 'ShowController@index')->name('show');
-
-Route::resource('images', 'ImageUploadController');
-Route::resource('images', 'HomeController');
+// Route::resource('images', 'ImageUploadController');
+// Route::resource('images', 'HomeController');
