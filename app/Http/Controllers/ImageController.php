@@ -127,7 +127,14 @@ class ImageController extends Controller
      */
     public function update(Request $request,$id)
     {
-         dd($request);
+        // dd($request);
+        $upload = Upload::find($id);
+        $upload->name = request('title');
+        $upload->description = request('description');
+        $upload->save();
+
+        return redirect('profile');
+
     }
 
     /**
@@ -146,13 +153,15 @@ class ImageController extends Controller
         // }
         // return $filename;
 
-        $upload = Upload::find($id);
+        // $upload = Upload::find($id);
 
-        Storage::delete('/public/'.$upload['filename']);
+        // Storage::delete('/public/'.$upload['filename']);
 
-        $upload->delete();
+        // $upload->delete();
+        // return view('home');
 
-        return view('home');
+        $upload = Upload::find($id)->delete();
+        return redirect('home');
 
     }
 }

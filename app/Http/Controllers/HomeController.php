@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Upload;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -24,27 +25,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $uploads = Upload::get();
-
+        $uploads = Upload::with('user')->get();
         // dd('1');
-
         // dd($uploads);
-
         return view('home')
             ->with('uploads', $uploads);
-
-
     }
 
-    // public function show()
-    // {
-    //     $images = Image::get();
-    //     if (count ($images)){
-    //         return view('home', ['images'=>$images]);
-    //     }   else {
-    //         echo "There are no images";
-    //     }
+    public function show()
+    {
+        // $images = Image::get();
+        // if (count ($images)){
+        //     return view('home', ['images'=>$images]);
+        // }   else {
+        //     echo "There are no images";
+        // }
 
-    // }
+    }
 
 }

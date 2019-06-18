@@ -21,10 +21,14 @@ class Upload extends Model
     ];
 
 
-    public function users(){
-        return $this->belongsToMany('App\User');
-    }
+    // public function users(){
+    //     return $this->belongsToMany('App\User');
+    // }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public function getImageAttribute()
     {

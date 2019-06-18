@@ -5,8 +5,8 @@
 @section('content')
     @include('partials.header')
 
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-
+{{--     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+ --}}
 	<body>
 		<header class="masthead">
 		  <div class="container h-100">
