@@ -20,13 +20,17 @@
                     @endif
                     You are logged in!
                 </div>
+                {{-- Deze knop gaat naar de pagina waar je afbeeldingen kan uploaden --}}
+                <a href="{{ route('image.create') }}" class="btn btn-outline-info logout upload">
+                    Upload
+                </a>
             </div>
 
-            <a href="{{ route('image.create') }}" class="logout btn btn-outline-info">
-                Upload
-            </a>
+
             <br>
             <br>
+
+            {{-- Hier komen je posts te staan die je hebt gemaakt --}}
             <h3>My posts</h3>
             @foreach($uploads as $upload)
                 <div class="card" style="width: 18rem;">
@@ -37,23 +41,24 @@
                         <p class="card-text">{{$upload->created_at->toDayDateTimeString()}}</p>
                         {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                     </div>
-                    <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$upload['id']}}').submit();">Delete</a>
+                    <div class="buttons">
+                        <div>
+                            <a href="{{url('/image/'.$upload->id.'/edit') }}"class="btn btn-primary">Edit</a>
+                              @csrf
+                              @method('PUT')
+                        {{-- </div> --}}
+                       {{--  <div class="delete"> --}}
+                            <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$upload['id']}}').submit();">Delete</a>
 
-                    <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
-                      @csrf
-                      @method('DELETE')
-                    </form>
-
-                    <a href="{{url('/image/'.$upload->id.'/edit') }}"class="btn btn-primary">Edit</a>
-                 {{--    <form id="edit-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;"> --}}
-                      @csrf
-                      @method('PUT')
-                   {{--  </form> --}}
+                            <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
+                              @csrf
+                              @method('DELETE')
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <br>
             @endforeach
-
-            {{-- <img src="/admin/product/{{ $product['image'] }}" height="30px" width="30px" /> --}}
         </div>
     </div>
 @endsection

@@ -1,9 +1,27 @@
-.profile-section{
+.profile-section
+{
 	top:107px;
 }
-#auth-post{
+
+#auth-post
+{
 	margin-top: 175px;
 }
-button.logout {
+
+button.logout
+{
     float: right;
+}
+
+.buttons
+{
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+.upload
+{
+	margin-left: 20px;
+	margin-bottom: 20px;
+	width: 12%;
 }

@@ -10695,8 +10695,19 @@ button.logout {
   float: right;
 }
 
+.buttons {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.upload {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 12%;
+}
+
 #margin {
-  margin-top: 50px !important;
+  margin-top: 20px !important;
 }
 
 .post {
@@ -10706,5 +10717,9 @@ button.logout {
 
 input.form-control {
   margin-top: 15px;
+}
+
+.create_post a:hover {
+  text-decoration: none;
 }
 

@@ -14,16 +14,29 @@
                 <br>
                 <br>
 
-                {{-- Hier worden de posts laten zien die je hebt upgeloaded --}}
-                @foreach($uploads as $upload)
-                   {{--  <center> --}}
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">{{ $upload['user']->name }}</div>
+               {{--  Als er geen post zijn gemaakt --}}
+                @if (count($uploads) === 0)
+                    <div>
+                        <b>There are no posts maded</b>
+                        <p>Click here to create a post:
+                            <button type="button" class="btn btn-light create_post">
+                                <a href="{{ url('/image/create') }}">
+                                    Create post
+                                </a>
+                            </button>
+                        </p>
+                    </div>
+                @else
+                    {{-- Hier worden de posts laten zien die je hebt upgeloaded --}}
+                    @foreach($uploads as $upload)
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    {{ $upload['user']->name }}
+                                </div>
                                 <div class="card-body">
-                                    <div class="list-group-item {{-- col-xs-6 col-md-4 col-lg-10  --}}post">
+                                    <div class="list-group-item post">
                                         <img src="{{ $upload->image }}">
-                                        {{-- <p id="title"><b>Title</b><br>{{$upload->name}}</p> --}}
                                         <p id="title"><b>Title</b>
                                             <br>
                                             <a href="{{ url('image/'.$upload['id'])}}">
@@ -44,10 +57,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {{-- </center> --}}
-                    <br>
-                @endforeach
+                        <br>
+                    @endforeach
+                @endif
             </div>
         </div>
 @endsection

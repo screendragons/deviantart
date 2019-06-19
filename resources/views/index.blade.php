@@ -25,19 +25,6 @@
             </div>
           </header>
 
-          <!-- About Section -->
-          <section class="page-section bg-primary" id="about">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                  <h2 class="text-white mt-0">Dadadadada</h2>
-                  <hr class="divider light my-4">
-                  <p class="text-white-50 mb-4">Lalala</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <!-- Services Section -->
           <section class="page-section" id="services">
             <div class="container">
@@ -84,7 +71,6 @@
                 <div class="col-lg-8 text-center">
                   <h2 class="mt-0">Let's Get In Touch!</h2>
                   <hr class="divider my-4">
-                  <p class="text-muted mb-5">dadada</p>
                 </div>
               </div>
               <div class="row">

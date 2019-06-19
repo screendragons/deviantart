@@ -30,6 +30,7 @@ class HomeController extends Controller
         // dd($uploads);
         return view('home')
             ->with('uploads', $uploads);
+
     }
 
     public function show()
