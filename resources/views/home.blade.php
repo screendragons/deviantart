@@ -26,7 +26,7 @@
                             </button>
                         </p>
                     </div>
-                @else
+                    @else
                     {{-- Hier worden de posts laten zien die je hebt upgeloaded --}}
                     @foreach($uploads as $upload)
                         <div class="col-md-8">
@@ -37,6 +37,8 @@
                                 <div class="card-body">
                                     <div class="list-group-item post">
                                         <img src="{{ $upload->image }}">
+                                        <br>
+                                        <br>
                                         <p id="title"><b>Title</b>
                                             <br>
                                             <a href="{{ url('image/'.$upload['id'])}}">
@@ -56,8 +58,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                         </div>
-                        <br>
                     @endforeach
                 @endif
             </div>

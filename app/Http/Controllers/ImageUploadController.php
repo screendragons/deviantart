@@ -51,7 +51,7 @@ class ImageUploadController extends Controller
                 // ->resize(null, 200, function ($constraint) {
                 //     $constraint->aspectRatio();
                 // });
-                ->resize(200, 200)
+                ->resize(400, 400)
                 ->save(storage_path('app\\public\\'.$fileNameToStore));
                 // ->storeAs('public', $fileNameToStore);
             // $path = $request->file('file')->storeAs('public', $fileNameToStore);

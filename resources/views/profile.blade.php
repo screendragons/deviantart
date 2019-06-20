@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    Hello {{ Auth::user()->name }}
+                    Hello {{ Auth::user()->name }}, welcome back!
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -19,14 +19,15 @@
                         </div>
                     @endif
                     You are logged in!
+                    <br>
+                    <br>
+                    {{-- Deze knop gaat naar de pagina waar je afbeeldingen kan uploaden --}}
+                    <p>Upload here your creation:</p>
+                    <a href="{{ route('image.create') }}" class="btn btn-outline-info logout upload">
+                        Upload
+                    </a>
                 </div>
-                {{-- Deze knop gaat naar de pagina waar je afbeeldingen kan uploaden --}}
-                <a href="{{ route('image.create') }}" class="btn btn-outline-info logout upload">
-                    Upload
-                </a>
             </div>
-
-
             <br>
             <br>
 
