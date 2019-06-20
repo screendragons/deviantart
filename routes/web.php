@@ -37,4 +37,6 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 
 // Route::resource('images', 'ImageUploadController');
 // Route::resource('images', 'HomeController');
+
 Route::resource('admin', 'Admin\AdminController');
+

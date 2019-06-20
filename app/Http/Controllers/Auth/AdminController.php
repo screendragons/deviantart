@@ -4,6 +4,10 @@
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
 
+    use App\User;
+    use App\Upload;
+    use Auth;
+
 class AdminController extends Controller
 {
     /**
@@ -13,7 +17,32 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin');
+        // $users = User::withCount([
+        //     'posts',
+        //     'comments',
+        //     'comments as approved_comments_count' => function ($query) {
+        //         $query->where('approved', 1);
+        //     }])
+        //     ->get();
+
+        // $users = User::withCount(['uploads'])->get();
+        // return view('users', compact('users'));
+        // $users = Upload::with('user')->get();
+        // return view('/admin.admin')
+        //     ->with('users', $users);
+
+        // $users = User::withCount([
+        //     'uploads',
+        //     'uploads as approved_comments_count' => function ($query) {
+        //         $query->where('approved', 1);
+        //     }])
+        //     ->get();
+
+        $users = Auth::user();
+        return view('/admin.admin')
+            ->with('users', $users);
+        // $users = User::All();
+        // return view('admin.admin');
     }
     /**
      * Show the form for creating a new resource.

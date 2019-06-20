@@ -44,11 +44,12 @@
                     </div>
                     <div class="buttons">
                         <div>
+                            {{-- edit knop --}}
                             <a href="{{url('/image/'.$upload->id.'/edit') }}"class="btn btn-primary">Edit</a>
                               @csrf
                               @method('PUT')
-                        {{-- </div> --}}
-                       {{--  <div class="delete"> --}}
+
+                            {{-- verwijder knop --}}
                             <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$upload['id']}}').submit();">Delete</a>
 
                             <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
