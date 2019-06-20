@@ -58,12 +58,9 @@ class ImageController extends Controller
             $fileNameToStore = str_slug($filename.'_'.time()).'.'.$extension;
             // Upload Image
             Image::make($request->file('file'))
-                // ->resize(150, 150)
-
-                // ->resize(null, 200, function ($constraint) {
-                //     $constraint->aspectRatio();
-                // });
-                ->resize(200, 200)
+                ->resize(600, 300, function($constraint){
+                    $constraint->aspectRatio();
+                })
                 ->save(storage_path('app\\public\\'.$fileNameToStore));
                 // ->storeAs('public', $fileNameToStore);
             // $path = $request->file('file')->storeAs('public', $fileNameToStore);
