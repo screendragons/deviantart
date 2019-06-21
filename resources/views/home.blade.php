@@ -14,6 +14,10 @@
                 <br>
                 <br>
 
+                <div class="paginate">
+                    {!! $uploads->links() !!}
+                </div>
+
                {{--  Als er geen post zijn gemaakt --}}
                 @if (count($uploads) === 0)
                     <div>

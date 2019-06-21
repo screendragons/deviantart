@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $uploads = Upload::with('user')->get();
+        $uploads = Upload::with('user')->orderBy('id', 'desc')->paginate(2);
         // dd('1');
         // dd($uploads);
         return view('home')

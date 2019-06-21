@@ -40,6 +40,7 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 
 // Route::resource('admin', 'Admin\AdminController');
 
-Route::get('admin/{id}/adminedit', 'Admin\AdminController@edit');
-Route::put('admin/{id}', 'Admin\AdminController@destroy');
-Route::get('admin', 'Admin\AdminController@show');
+Route::get('admin/{id}/adminedit', 'AdminController@edit');
+Route::put('admin/{id}', 'AdminController@update');
+Route::delete('admin/{id}', 'AdminController@destroy');
+Route::get('admin', 'AdminController@show');

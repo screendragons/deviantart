@@ -5,34 +5,6 @@
 @section('content')
   @include('partials.header')
     <ul class="navbar-nav bg-gradient-primary sidebar {{-- sidebar-dark accordion --}}" id="accordionSidebar">
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="../public/admin">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Edit account</span>
-        </a>
-      </li>
-
-       <li class="nav-item">
-        <a class="nav-link collapsed" href="" >
-          <i class="fas fa-fw fa-folder"></i>
-          <span>All users</span>
-        </a>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>All uploads</span></a>
-      </li>
     </ul>
     <div class="container-fluid">
       <!-- Content Row -->
@@ -96,10 +68,7 @@
               <td>{{ $user->email }}</td>
               <td>{{ $user->uploads }}</td>
               <td>
-                <a href="{{url($user->id.'/adminedit') }} "class="btn btn-primary">Edit</a>
-                @method('PUT')
-                @csrf
-
+                <a href="{{url('admin/'.$user->id.'/adminedit') }} "class="btn btn-primary">Edit</a>
               </td>
               <td>
                <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$user['id']}}').submit();">Delete</a>

@@ -1,6 +1,6 @@
 <?php
 
-    namespace App\Http\Controllers\Admin;
+    namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
 
@@ -91,8 +91,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-         $users = User::where('id', Auth::id())->get();
-            return view('admin.admin')->with('users', $users);
+        $user = User::where('id', $id)->get();
+
+        return view('admin.adminedit')->with('user', $user[0]);
     }
     /**
      * Update the specified resource in storage.
