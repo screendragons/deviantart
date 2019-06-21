@@ -29,18 +29,25 @@
          {{--  </li> --}}
       @endif
       @else
+
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link page" href="{{ url('/home') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link page" href="{{ url('/profile') }}">Profile</a>
+            @if(Auth::user()->is_admin)
+              <a href="{{ URL::to('/admin') }}">Admin panel /</a>
+            @endif
+            <a href="{{ url('/profile') }}">profiel panel</a>
+
+            {{-- <a class="nav-link page" href="{{ url('/profile') }}">Profile</a> --}}
           </li>
         </ul>
         <form action="{{ route('logout') }}" method="post">
           <button class="logout btn btn-outline-info"> Log out </button>
          @csrf
         </form>
+
     @endguest
   </div>
 </nav>

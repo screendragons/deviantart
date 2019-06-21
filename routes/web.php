@@ -40,3 +40,4 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 
 Route::resource('admin', 'Admin\AdminController');
 
+Route::get('admin', 'Admin\AdminController@show');

@@ -81,29 +81,27 @@
     <table class="table">
         <thead>
           <tr>
-              <th>id</th>
-              <th>User</th>
-              <th>E-mail</th>
-              <th>Uploads</th>
-              <th>
-
-              </th>
+            <th>id</th>
+            <th>User</th>
+            <th>E-mail</th>
+            <th>Uploads</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($users as $user)
+          @foreach ((array) $users as $user))
             <tr>
-              <td>{{$users->id }}</td>
-              <td {{-- class="text-center" --}}>{{ $users->name }}</td>
-              <td>{{ $users->email }}</td>
-              <td>{{-- {{ $users->$uploads->upload_count }} --}}</td>
+              <td>{{$user->id }}</td>
+              <td {{-- class="text-center" --}}>{{ $user->name }}</td>
+              <td>{{ $user->email }}</td>
+              <td>{{ $user->upload }}</td>
               <td>
                 <a href="{{-- {{url('/image/'.$upload->id.'/edit') }} --}} #"class="btn btn-primary">Edit</a>
                 {{-- @csrf
                 @method('PUT') --}}
               </td>
               <td>
-               <a class="btn btn-danger" {{-- onclick="event.preventDefault(); document.getElementById('remove-form-{{$users['id']}}').submit(); --}}">Delete</a>
+               <a class="btn btn-danger" {{-- onclick="event.preventDefault(); document.getElementById('remove-form-{{$users['id']}}').submit(); --}}>Delete</a>
 
                {{--  <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
                   @csrf
