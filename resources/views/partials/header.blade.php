@@ -36,9 +36,10 @@
           </li>
           <li class="nav-item">
             @if(Auth::user()->is_admin)
-              <a href="{{ URL::to('/admin') }}">Admin panel /</a>
+              <a href="{{ URL::to('/admin') }}">Admin panel</a>
+              /
             @endif
-            <a href="{{ url('/profile') }}">profiel panel</a>
+            <a href="{{ url('/profile') }}">Profile</a>
 
             {{-- <a class="nav-link page" href="{{ url('/profile') }}">Profile</a> --}}
           </li>

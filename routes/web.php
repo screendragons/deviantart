@@ -38,6 +38,8 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 // Route::resource('images', 'ImageUploadController');
 // Route::resource('images', 'HomeController');
 
-Route::resource('admin', 'Admin\AdminController');
+// Route::resource('admin', 'Admin\AdminController');
 
+Route::get('admin/{id}/adminedit', 'Admin\AdminController@edit');
+Route::put('admin/{id}', 'Admin\AdminController@destroy');
 Route::get('admin', 'Admin\AdminController@show');

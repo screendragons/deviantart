@@ -89,27 +89,27 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ((array) $users as $user))
+          @foreach($users as $user)
             <tr>
-              <td>{{$user->id }}</td>
+              <td>{{ $user->id }}</td>
               <td {{-- class="text-center" --}}>{{ $user->name }}</td>
               <td>{{ $user->email }}</td>
-              <td>{{ $user->upload }}</td>
+              <td>{{ $user->uploads }}</td>
               <td>
-                <a href="{{-- {{url('/image/'.$upload->id.'/edit') }} --}} #"class="btn btn-primary">Edit</a>
-                {{-- @csrf
-                @method('PUT') --}}
+                <a href="{{url($user->id.'/adminedit') }} "class="btn btn-primary">Edit</a>
+                @method('PUT')
+                @csrf
+
               </td>
               <td>
-               <a class="btn btn-danger" {{-- onclick="event.preventDefault(); document.getElementById('remove-form-{{$users['id']}}').submit(); --}}>Delete</a>
+               <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$user['id']}}').submit();">Delete</a>
 
-               {{--  <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
+                <form id="remove-form-{{$user['id']}}" action="{{url($user->id)}}" method="POST" style="display: none;">
                   @csrf
                   @method('DELETE')
-                </form> --}}
+                </form>
               </td>
             </tr>
-            <tr>
           @endforeach
         </tbody>
     </table>

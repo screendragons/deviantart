@@ -6,6 +6,7 @@
 
     use App\User;
     use App\Upload;
+    use DB;
     use Auth;
 
 class AdminController extends Controller
@@ -17,11 +18,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $uploads = Upload::get();
-
-        if(count($uploads)){
-            return view('admin.admin', ['uploads' => $uploads]);
-        }
+          // $users = User::all();
+          // return view('admin.admin', ['users' => $users]);
+        // $uploads = Upload::get();
+        // if(count($uploads)){
+        //     return view('admin.admin', ['uploads' => $uploads]);
+        // }
 
         // $users = User::withCount(['uploads'])->get();
         // return view('users', compact('users'));
@@ -71,8 +73,15 @@ class AdminController extends Controller
      */
     public function show(User $users)
     {
-        $users = User::find($users->id);
+        $users = User::with('uploads')->get();
+
+        foreach ($users as $key => $user) {
+            $uploads = count($user['uploads']);
+            $users[$key]['uploads'] = $uploads;
+        }
         return view('admin.admin', ['users' => $users]);
+
+
     }
     /**
      * Show the form for editing the specified resource.
@@ -82,7 +91,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+         $users = User::where('id', Auth::id())->get();
+            return view('admin.admin')->with('users', $users);
     }
     /**
      * Update the specified resource in storage.
