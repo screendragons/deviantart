@@ -1,24 +1,16 @@
 <?php
 
+//index
 Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/profile', function () {
-//     return view('profile');
-// });
-
-// Route::get('/home', function () {
-//     return view('home');
-// });
-
-
 Auth::routes();
 
-// Route::post('logout', 'Auth\LoginController@logout')->name('auth.logout');
-
+// Weergeeft de profiel pagina
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
+// Weergeeft de home pagina
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Create
@@ -37,10 +29,14 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 
 // Route::resource('images', 'ImageUploadController');
 // Route::resource('images', 'HomeController');
-
 // Route::resource('admin', 'Admin\AdminController');
 
+// Admin panel
 Route::get('admin/{id}/adminedit', 'AdminController@edit');
 Route::put('admin/{id}', 'AdminController@update');
 Route::delete('admin/{id}', 'AdminController@destroy');
 Route::get('admin', 'AdminController@show');
+
+// Like posts
+// Route::get('uploads/like/{id}', ['as' => 'uploads.like', 'uses' => 'LikeController@likedUpload']);
+Route::post('/like', 'ImageController@like')->name('like');

@@ -34,4 +34,9 @@ class Upload extends Model
     {
     	return asset('storage/'.$this->filename);
     }
+
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
 }

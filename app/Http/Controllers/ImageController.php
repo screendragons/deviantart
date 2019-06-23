@@ -7,7 +7,7 @@ use App\Upload;
 use Auth;
 use Image;
 use Storage;
-
+use Like;
 
 class ImageController extends Controller
 {
@@ -159,6 +159,5 @@ class ImageController extends Controller
 
         $upload = Upload::find($id)->delete();
         return redirect('home');
-
     }
 }

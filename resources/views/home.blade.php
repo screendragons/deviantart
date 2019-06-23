@@ -60,6 +60,7 @@
                                             {{$upload->created_at->toDayDateTimeString()}}
                                         </p>
                                     </div>
+                                    <button><a href="" class="like">{{Auth::user()->likes()->where('upload_id', $upload->id)->first() ? Auth::user()->likes()->where('upload_id', $upload->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'}}</a></button>
                                 </div>
                             </div>
                             <br>
@@ -68,5 +69,9 @@
                 @endif
             </div>
         </div>
+    <script>
+        var token = '{{Session::token()}}';
+        var urlLike = '{{route('like')}}';
+    </script>
 @endsection
 

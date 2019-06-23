@@ -23,6 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
         $uploads = Upload::with('user')->orderBy('id', 'desc')->paginate(2);
@@ -42,6 +43,41 @@ class HomeController extends Controller
         //     echo "There are no images";
         // }
 
+    }
+
+    //like post
+    public function like(Request $request)
+    {
+        $upload_id = $request['uploadId'];
+        $is_Like = $request['isLike'] === 'true';
+        $update = false;
+        $upload = Upload::find($upload_id);
+        if (!upload){
+            return null;
+        }
+        $user = Auth::user();
+        $like = $user->likes()->where('upload_id', $upload_id)->first();
+        if ($like){
+            $already_like = $like->like;
+            $update = true;
+            if ($already_like == $is_like) {
+                $like->delete();
+                return null;
+
+            }
+        } else {
+            $like = new Like();
+        }
+
+        $like->like = $is_like;
+        $like->user_id = $user->id;
+        $like->upload_id = $upload->id;
+        if ($update) {
+            $like->update();
+        } else {
+            $like->save();
+        }
+        return null;
     }
 
 }
