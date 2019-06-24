@@ -13,6 +13,9 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 // Weergeeft de home pagina
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Weergeeft de home pagina
+Route::get('/likespage', 'LikesPageController@index')->name('likespage');
+
 // Create
 Route::get('/image/create','ImageController@create')->name('image.create');
 Route::post('/image/store','ImageController@store')->name('image.store');
@@ -32,9 +35,9 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 // Route::resource('admin', 'Admin\AdminController');
 
 // Admin panel
-Route::get('admin/{id}/adminedit', 'AdminController@edit');
-Route::put('admin/{id}', 'AdminController@update');
-Route::delete('admin/{id}', 'AdminController@destroy');
+Route::get('admin/{user.id}/adminedit', 'AdminController@edit');
+Route::put('admin/{user.id}', 'AdminController@update');
+Route::delete('admin/{user.id}', 'AdminController@destroy');
 Route::get('admin', 'AdminController@show');
 
 // Like posts

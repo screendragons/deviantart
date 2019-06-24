@@ -26,6 +26,10 @@
                     <a href="{{ route('image.create') }}" class="btn btn-outline-info logout upload">
                         Upload
                     </a>
+                    <p>Liked posts:</p>
+                    <a href="{{ route('likespage') }}" class="btn btn-outline-danger logout upload">
+                        Likes
+                    </a>
                 </div>
             </div>
             <br>
@@ -61,6 +65,8 @@
                 </div>
                 <br>
             @endforeach
+
+            <h3>Your likes</h3>
         </div>
     </div>
 @endsection

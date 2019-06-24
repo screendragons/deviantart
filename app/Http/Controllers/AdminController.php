@@ -104,7 +104,12 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($Request);
+        $user = User::find($id);
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->save();
+        return view('admin.admin');
     }
     /**
      * Remove the specified resource from storage.
