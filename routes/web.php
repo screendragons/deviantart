@@ -35,11 +35,11 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 // Route::resource('admin', 'Admin\AdminController');
 
 // Admin panel
-Route::get('admin/{user.id}/adminedit', 'AdminController@edit');
-Route::put('admin/{user.id}', 'AdminController@update');
-Route::delete('admin/{user.id}', 'AdminController@destroy');
+Route::get('admin/{id}/adminedit', 'AdminController@edit');
+Route::put('admin/{id}/update', 'AdminController@update');
+Route::delete('admin/{id}/delete', 'AdminController@destroy');
 Route::get('admin', 'AdminController@show');
 
 // Like posts
 // Route::get('uploads/like/{id}', ['as' => 'uploads.like', 'uses' => 'LikeController@likedUpload']);
-Route::get('/like/{upload_id}', 'LikeController@store')->name('like');
+Route::get('/like/{id}', 'LikeController@store')->name('like');

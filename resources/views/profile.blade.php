@@ -37,36 +37,63 @@
 
             {{-- Hier komen je posts te staan die je hebt gemaakt --}}
             <h3>My posts</h3>
-            @foreach($uploads as $upload)
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{$upload->image}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"> {{$upload->name}}</h5>
-                        <p class="card-text">{{$upload->description}}</p>
-                        <p class="card-text">{{$upload->created_at->toDayDateTimeString()}}</p>
-                        {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
-                    </div>
-                    <div class="buttons">
-                        <div>
-                            {{-- edit knop --}}
-                            <a href="{{url('/image/'.$upload->id.'/edit') }}"class="btn btn-primary">Edit</a>
-                              @csrf
-                              @method('PUT')
-
-                            {{-- verwijder knop --}}
-                            <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$upload['id']}}').submit();">Delete</a>
-
-                            <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
-                              @csrf
-                              @method('DELETE')
-                            </form>
-                        </div>
-                    </div>
+            @if (count($uploads) === 0)
+                <div>
+                    <b>There are no posts maded</b>
+                    <p>Click here to create a post:
+                        <button type="button" class="btn btn-light create_post">
+                            <a href="{{ url('/image/create') }}">
+                                Create post
+                            </a>
+                        </button>
+                    </p>
                 </div>
-                <br>
-            @endforeach
+                @else
+                    @foreach($uploads as $upload)
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{$upload->image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"> {{$upload->name}}</h5>
+                                <p class="card-text">{{$upload->description}}</p>
+                                <p class="card-text">{{$upload->created_at->toDayDateTimeString()}}</p>
+                                {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+                            </div>
+                            <div class="buttons">
+                                <div>
+                                    {{-- edit knop --}}
+                                    <a href="{{url('/image/'.$upload->id.'/edit') }}"class="btn btn-primary">Edit</a>
+                                      @csrf
+                                      @method('PUT')
+
+                                    {{-- verwijder knop --}}
+                                    <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$upload['id']}}').submit();">Delete</a>
+
+                                    <form id="remove-form-{{$upload['id']}}" action="{{url('image/'.$upload->id)}}" method="POST" style="display: none;">
+                                      @csrf
+                                      @method('DELETE')
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    @endforeach
+                @endif
 
             <h3>Your likes</h3>
+            {{-- @if (count($likes) === 0)
+                <div>
+                    <b>You didn't like anything, how?</b>
+                    <p>Click here to like a post:
+                        <button type="button" class="btn btn-light create_post">
+                            <a href="{{ url('home') }}">
+                                Like
+                            </a>
+                        </button>
+                    </p>
+                </div>
+                @else
+                You have likes
+            @endif --}}
         </div>
     </div>
 @endsection

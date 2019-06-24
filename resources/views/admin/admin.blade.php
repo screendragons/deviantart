@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('class', 'admin')
+@section('title', 'admin')
 
 @section('content')
   @include('partials.header')

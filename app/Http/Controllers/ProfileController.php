@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Upload;
 use DB;
-use App\Http\Requests;
+
 
 class ProfileController extends Controller
 {

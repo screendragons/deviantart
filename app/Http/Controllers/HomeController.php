@@ -57,38 +57,47 @@ class HomeController extends Controller
     }
 
     //like post
-    public function like(Request $request)
+    public function like(/*Request $request,*/ $id)
     {
-        $upload_id = $request['uploadId'];
-        $is_Like = $request['isLike'] === 'true';
-        $update = false;
-        $upload = Upload::find($upload_id);
-        if (!$upload){
-            return null;
-        }
-        $user = Auth::user();
-        $like = $user->likes()->where('upload_id', $upload_id)->first();
-        if ($like){
-            $already_like = $like->like;
-            $update = true;
-            if ($already_like == $is_like) {
-                $like->delete();
-                return null;
+        // $upload_id = $request['uploadId'];
+        // $is_Like = $request['isLike'] === 'true';
+        // $update = false;
+        // $upload = Upload::find($upload_id);
+        // if (!$upload){
+        //     return null;
+        // }
+        // $user = Auth::user();
+        // $like = $user->likes()->where('upload_id', $upload_id)->first();
+        // if ($like){
+        //     $already_like = $like->like;
+        //     $update = true;
+        //     if ($already_like == $is_like) {
+        //         $like->delete();
+        //         return null;
 
-            }
-        } else {
-            $like = new Like();
-        }
+        //     }
+        // } else {
+        //     $like = new Like();
+        // }
 
-        $like->like = $is_like;
-        $like->user_id = $user->id;
-        $like->upload_id = $upload->id;
-        if ($update) {
-            $like->update();
-        } else {
-            $like->save();
+        // $like->like = $is_like;
+        // $like->user_id = $user->id;
+        // $like->upload_id = $upload->id;
+        // if ($update) {
+        //     $like->update();
+        // } else {
+        //     $like->save();
+        // }
+        // return null;
+
+        $userLikes = DB::table('likes')->insert([
+            'upload_id' => $id,
+            'user_id' => Auth::user()->id,
+            'created_at' =>\Carbon\Carbon::now()->toDateTimeString()
+        ]);
+        if($userLikes){
+            return upload::with('user')->orderBy('created_at', 'DESC')->get();
         }
-        return null;
     }
 
 }
