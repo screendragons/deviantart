@@ -39,4 +39,4 @@ Route::get('admin', 'AdminController@show');
 
 // Like posts
 // Route::get('uploads/like/{id}', ['as' => 'uploads.like', 'uses' => 'LikeController@likedUpload']);
-Route::post('/like', 'ImageController@like')->name('like');
+Route::get('/like/{upload_id}', 'LikeController@store')->name('like');

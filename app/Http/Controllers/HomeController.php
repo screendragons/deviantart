@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Upload;
 use App\User;
+use App\Like;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -26,11 +28,20 @@ class HomeController extends Controller
 
     public function index()
     {
-        $uploads = Upload::with('user')->orderBy('id', 'desc')->paginate(2);
+        $uploads = Upload::select('uploads.*')
+            ->with('user')
+            // ->join('likes','upload.id', 'likes.upload_id')
+            ->orderBy('uploads.id', 'desc')->paginate(2);
         // dd('1');
         // dd($uploads);
+
+        $userLikes = Like::where('user_id', Auth::id())
+            ->pluck('upload_id')->toArray();
+
+
         return view('home')
-            ->with('uploads', $uploads);
+            ->with('uploads', $uploads)
+            ->with('userLikes', $userLikes);
 
     }
 
@@ -52,7 +63,7 @@ class HomeController extends Controller
         $is_Like = $request['isLike'] === 'true';
         $update = false;
         $upload = Upload::find($upload_id);
-        if (!upload){
+        if (!$upload){
             return null;
         }
         $user = Auth::user();
