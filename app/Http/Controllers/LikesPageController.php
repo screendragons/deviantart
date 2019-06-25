@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Like;
+use App\Like;
+use App\Upload;
+use Auth;
 
 class LikesPageController extends Controller
 {
@@ -14,8 +16,13 @@ class LikesPageController extends Controller
      */
     public function index()
     {
-        return view('likespage');
-        // ->with('userLikes', $userLikes);
+        $uploads = Upload::where('user_id', Auth::id())->get();
+
+        $userLikes = Like::where('user_id', Auth::id())->pluck('upload_id')->toArray();
+
+        return view('likespage')
+            ->with('uploads', $uploads)
+            ->with('userLikes', $userLikes);
     }
 
     /**

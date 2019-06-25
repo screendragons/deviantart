@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Upload;
-use Like;
+use App\Upload;
+use App\Like;
+use Auth;
 use DB;
 
 class LikeController extends Controller
@@ -35,14 +36,39 @@ class LikeController extends Controller
     //             }
     //         }
     //     }
-    public function store()
-    {
-        // $userLikes = DB::table('likes')->count();
-        // return view('home')->with('userLikes', $userLikes);
 
-        $userLikes = new Like();
-        $userLikes->user_id = Auth::id();
-        $userLikes > 0;
-        $userLikes->save();
+    public function index()
+    {
+
+    }
+    public function store(Request $request, $id)
+    {
+        // dd($id);
+        $like = Like::where('user_id', Auth::id())->where('upload_id', $id)->count();
+        // return view('home')->with('userLikes', $userLikes);
+// dd($like);
+        if ($like) {
+            // dd('remove');
+            // remove like
+            $like = Like::where('user_id', Auth::id())->where('upload_id', $id)->delete();
+        }
+        else {
+            // dd('create');
+            // create like
+            //store like
+            $like = new Like();
+            $like->user_id = Auth::id();
+            $like->upload_id = $id;
+            $like->like = 1;
+            $like->save();
+
+
+        }
+        return redirect()->back();
+    }
+
+    public function show()
+    {
+
     }
 }

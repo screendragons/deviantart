@@ -10728,3 +10728,7 @@ input.form-control {
   text-decoration: none;
 }
 
+.col-md-8.left {
+  margin-left: 20px !important;
+}
+

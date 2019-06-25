@@ -95,6 +95,7 @@ class HomeController extends Controller
             'user_id' => Auth::user()->id,
             'created_at' =>\Carbon\Carbon::now()->toDateTimeString()
         ]);
+
         if($userLikes){
             return upload::with('user')->orderBy('created_at', 'DESC')->get();
         }

@@ -9,8 +9,6 @@ use Image;
 
 class ImageUploadController extends Controller
 {
-
-
     public function create()
     {
         return view('imageupload');
