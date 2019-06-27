@@ -10678,9 +10678,14 @@ a.nav-link.page {
   color: #F4623A !important;
 }
 
+a.nav-link {
+  color: #F4623A !important;
+}
+
 button.logout.btn.btn-outline-info {
   float: right;
   margin-top: -55px;
+  position: relative;
 }
 
 .profile-section {
@@ -10730,5 +10735,10 @@ input.form-control {
 
 .col-md-8.left {
   margin-left: 20px !important;
+}
+
+form {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 

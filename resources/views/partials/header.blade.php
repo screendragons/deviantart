@@ -8,11 +8,16 @@
     <a class="header navbar-brand" href="http://localhost/deviantart/public/">DeviantArt</a>
 
     @guest
-      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-      @if (Route::has('register'))
-        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-      @endif
-
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+      </li>
+      <li class="nav-item">
+        @if (Route::has('register'))
+          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        @endif
+      </li>
+    </ul>
       @else
         <ul class="navbar-nav">
           <li class="nav-item">
