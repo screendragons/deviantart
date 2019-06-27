@@ -9,14 +9,7 @@
             <div class="row justify-content-center">
 
                 <!-- Search form -->
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                <br>
-                <br>
-                <br>
-
-                <div class="paginate">
-                    {!! $uploads->links() !!}
-                </div>
+                {{-- <input class="form-control" type="text" placeholder="Search" aria-label="Search"> --}}
 
                {{--  Als er geen post zijn gemaakt --}}
                 @if (count($uploads) === 0)
@@ -69,7 +62,11 @@
                         </div>
                     @endforeach
                 @endif
+
             </div>
+        </div>
+        <div class="paginate">
+            {!! $uploads->links() !!}
         </div>
     <script>
         var token = '{{Session::token()}}';

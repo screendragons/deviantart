@@ -25,6 +25,7 @@
               Home
             </a>
           </li>
+
           <li class="nav-item">
           @if(Auth::user()->is_admin)
             <a class="nav-link page" href="{{ URL::to('/admin') }}">

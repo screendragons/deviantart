@@ -23,6 +23,7 @@ class LikesPageController extends Controller
         return view('likespage')
             ->with('uploads', $uploads)
             ->with('userLikes', $userLikes);
+
     }
 
     /**
@@ -54,7 +55,7 @@ class LikesPageController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -77,7 +78,7 @@ class LikesPageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -88,6 +89,14 @@ class LikesPageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if($userLikes)
+        {
+            $userLikes = false;
+        }
+        else
+        {
+            $userLikes = Like::find($id, $uploads_id)->delete();
+            return redirect('likespage');
+        }
     }
 }

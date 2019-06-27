@@ -16,7 +16,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $users)
     {
           // $users = User::all();
           // return view('admin.admin', ['users' => $users]);
@@ -42,9 +42,15 @@ class AdminController extends Controller
         // return view('/admin.admin')
         //     ->with('users', $users);
 
+         if( Auth::check() ){
+            $users = User::where('id', '!=', Auth::id())->get();
+            return view('admin.admin', ['users'=> $users]);
+         }
+         return view('auth.login');
 
         // $users = User::All();
-        // return view('admin.admin');
+        // $users = User::find($users->id);
+        // return view('admin.admin', ['users'=>$users]);
     }
     /**
      * Show the form for creating a new resource.
@@ -105,7 +111,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
 
-        $user = User::find($id);
+        $user = User::where('id', $id)->get();
         $user->name = request('name');
         $user->email = request('email');
         $user->save();

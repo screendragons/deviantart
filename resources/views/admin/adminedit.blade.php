@@ -5,7 +5,7 @@
 @section('content')
     @include('partials.header')
 
-    <form action="{{url('/user/'.$user['id'])}}" method="POST">
+    <form action="{{url('/user/'.$user['id'])}}{{-- {{ route('users.update',[$user->id]) }} --}}" method="POST">
     	@csrf
     	@method('PUT')
       <div class="form-group">
