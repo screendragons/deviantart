@@ -36,17 +36,17 @@ Route::delete('/image/{id}','ImageController@destroy')->name('image.destroy');
 
 // Route::resource('images', 'ImageUploadController');
 // Route::resource('images', 'HomeController');
-// Route::resource('admin', 'Admin\AdminController');
+Route::resource('admin', 'AdminController');
 
-// Admin panel
-// Read
-Route::get('admin/{id}', 'AdminController@show');
-//Edit
-Route::get('admin/{id}/adminedit', 'AdminController@edit');
-// Update
-Route::put('admin/{id}', 'AdminController@update');
-// Delete
-Route::delete('admin/{id}', 'AdminController@destroy');
+// // Admin panel
+// // Read
+// Route::get('admin/{id}', 'AdminController@show');
+// //Edit
+// Route::get('admin/{id}/edit', 'AdminController@edit');
+// // Update
+// Route::put('admin/{id}', 'AdminController@update');
+// // Delete
+// Route::delete('admin/{id}', 'AdminController@destroy');
 
 
 // Like posts

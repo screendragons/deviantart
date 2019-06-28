@@ -97,9 +97,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $user = User::where('id', $id)->get();
+        $user = User::where('id', $id)->first();
 
-        return view('admin.adminedit')->with('user', $user[0]);
+        return view('admin.adminedit')->with('user', $user);
     }
     /**
      * Update the specified resource in storage.
@@ -111,12 +111,12 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
 
-        $user = User::where('id', $id)->get();
+        $user = User::where('id', $id)->first();
         $user->name = request('name');
         $user->email = request('email');
         $user->save();
 
-        return view('admin.admin');
+        return redirect()->route('admin.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -127,6 +127,6 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $user = User::find($id)->delete();
-        return redirect('admin.admin');
+        return redirect()->route('admin.index');
     }
 }
