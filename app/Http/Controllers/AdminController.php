@@ -18,29 +18,6 @@ class AdminController extends Controller
      */
     public function index(User $users)
     {
-          // $users = User::all();
-          // return view('admin.admin', ['users' => $users]);
-        // $uploads = Upload::get();
-        // if(count($uploads)){
-        //     return view('admin.admin', ['uploads' => $uploads]);
-        // }
-
-        // $users = User::withCount(['uploads'])->get();
-        // return view('users', compact('users'));
-        // $users = Upload::with('user')->get();
-        // return view('/admin.admin')
-        //     ->with('users', $users);
-
-        // $users = User::withCount([
-        //     'uploads',
-        //     'uploads as approved_comments_count' => function ($query) {
-        //         $query->where('approved', 1);
-        //     }])
-        //     ->get();
-
-        // $users = Auth::user();
-        // return view('/admin.admin')
-        //     ->with('users', $users);
 
          if( Auth::check() ){
             $users = User::where('id', '!=', Auth::id())->get();
@@ -82,12 +59,10 @@ class AdminController extends Controller
         $users = User::with('uploads')->get();
 
         foreach ($users as $key => $user) {
-            $uploads = count($user['uploads']);
+            $uploads = count($users['uploads']);
             $users[$key]['uploads'] = $uploads;
         }
         return view('admin.admin', ['users' => $users]);
-
-
     }
     /**
      * Show the form for editing the specified resource.

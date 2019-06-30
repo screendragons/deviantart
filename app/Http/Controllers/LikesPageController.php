@@ -95,8 +95,10 @@ class LikesPageController extends Controller
         }
         else
         {
-            $userLikes = Like::find($id, $uploads_id)->delete();
+            $userLikes = Like::find($id)->delete();
+            $upload = Upload::find($id)->delete();
             return redirect('likespage');
+
         }
     }
 }
